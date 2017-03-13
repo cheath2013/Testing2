@@ -1,0 +1,44 @@
+
+
+         85 function calls in 0.001 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    0.001    0.001 Checks.py:6(readInput)
+       41    0.000    0.000    0.000    0.000 {len}
+       42    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+
+Is one to one
+Filename: Checks.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    89      9.6 MiB      0.0 MiB   @profile
+    90                             def CheckOne2One():
+    91                             
+    92      9.6 MiB      0.0 MiB       pf = cProfile.Profile();
+    93      9.6 MiB      0.1 MiB       pf.enable();
+    94      9.6 MiB      0.0 MiB       print "\n"
+    95      9.7 MiB      0.1 MiB       output, range = readInput()
+    96                             
+    97      9.7 MiB      0.0 MiB       for i in output:
+    98                             
+    99                                     #if a key holds more than one value, not one to one
+   100      9.7 MiB      0.0 MiB           if len(output[i]) > 1:
+   101                                         print "Is not one to one"
+   102                                         return False
+   103                                 #if it makes it this far, is one to one
+   104      9.7 MiB      0.0 MiB       pf.disable()
+   105      9.7 MiB      0.0 MiB       s = StringIO.StringIO()
+   106      9.7 MiB      0.0 MiB       sortby = 'cumulative'
+   107      9.7 MiB      0.0 MiB       ps = pstats.Stats(pf, stream=s).sort_stats(sortby)
+   108      9.7 MiB      0.0 MiB       ps.print_stats()
+   109      9.7 MiB      0.0 MiB       print s.getvalue()
+   110      9.7 MiB      0.0 MiB       print "Is one to one"
+   111      9.7 MiB      0.0 MiB       return True
+
+

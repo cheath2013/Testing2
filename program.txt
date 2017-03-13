@@ -1,0 +1,33 @@
+
+
+Is transitive
+Filename: Checks.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+   189      9.5 MiB      0.0 MiB   @profile
+   190                             def CheckTrans():
+   191      9.5 MiB      0.0 MiB       print "\n"
+   192      9.5 MiB      0.0 MiB       output, size = readInput()
+   193                             
+   194      9.5 MiB      0.0 MiB       for a in output:
+   195                                     #if a == b
+   196      9.5 MiB      0.0 MiB           for b in output[a]:
+   197      9.5 MiB      0.0 MiB               if b in output:
+   198                                             #and b == c
+   199      9.5 MiB      0.0 MiB                   for c in output[b]:
+   200                                                 #then a == c
+   201      9.5 MiB      0.0 MiB                       if c in output[a] or c == a:
+   202                                                     continue
+   203                                                 else:
+   204                                                     print "Is not transitive"
+   205                                                     isTrans = False
+   206                                                     return False
+   207                                         else:
+   208                                             #a == b, but b !== c
+   209                                             continue
+   210      9.5 MiB      0.0 MiB       isTrans = False
+   211      9.5 MiB      0.0 MiB       print "Is transitive"
+   212      9.5 MiB      0.0 MiB       return True
+
+
